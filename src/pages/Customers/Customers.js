@@ -46,10 +46,10 @@ export default class Customers extends React.Component {
                   items={this.state.customers}
                   fields={[
                     { key: 'customer_id', label: 'Customer Id', _classes: 'font-weight-bold' },
-                    { key: 'name', label: 'Customer Name' },
+                    { key: 'name', label: 'Name' },
                     { key: 'email', label: 'Email' },
                     { key: 'phone', label: 'Phone' },
-                    { key: 'income', label: 'Income Range(in 1000$)' },
+                    { key: 'income', label: 'Income' },
                     { key: 'region', label: 'Region' },
                     { key: 'gender', label: 'Gender' },
                     { key: 'marital_status', label: 'Marital Status' }
