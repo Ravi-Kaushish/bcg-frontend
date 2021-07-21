@@ -1,0 +1,14 @@
+# Anything not used by the build system should go here.
+Dockerfile
+.dockerignore
+.gitignore
+README.md
+REACT.md
+yarn.lock
+
+# Artifacts that will be built during image creation.
+# This should contain all files created during `npm run build`.
+.git
+dist
+node_modules
+.env
