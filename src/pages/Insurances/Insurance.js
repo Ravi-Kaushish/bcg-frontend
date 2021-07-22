@@ -9,6 +9,7 @@ import CIcon from '@coreui/icons-react';
 import { PageLoader, ModalLoader } from '../../components/Loaders';
 import { Popup } from '../../components/Popups';
 import API from '../../utils/api';
+import { HTTP_SUCCESS, INSURANCES } from '../../utils/constants';
 
 export default class Insurance extends React.Component {
   constructor(props) {
@@ -24,23 +25,27 @@ export default class Insurance extends React.Component {
       popupMessage: '',
       popupAction: '',
 
-      appIdentifier: this.props.match.params.id
+      insurance_id: this.props.match.params.id
     }
     this.onChange = this.onChange.bind(this);
     this.popupHandler = this.popupHandler.bind(this);
   };
 
   componentDidMount() {
-    document.title = this.state.appIdentifier;
-    this.getApp();
+    document.title = this.state.insurance_id;
+    this.getInsurance();
   };
 
-  getApp = async () => {
-
-  };
-
-  componentWillUnmount() {
-
+  getInsurance = async () => {
+    this.setState({ loading: true });
+    let response = await API.getAsync(`${INSURANCES}/${this.state.insurance_id}`);
+    if (HTTP_SUCCESS.includes(response.status)) {
+      this.setState({ insurances: response.data, loading: false });
+    } else {
+      this.setState({ loading: false });
+      //Add Error Alerts Messages here
+      // console.log("An error occured while retreiving Insurances data");
+    }
   };
 
   resetControls = () => {

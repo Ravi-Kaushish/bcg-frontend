@@ -100,8 +100,6 @@ export default class Policies extends React.Component {
                   pagination
                   columnFilter={true}
                   itemsPerPage={10}
-                  clickableRows
-                  onRowClick={(item) => this.props.history.push(`/policies/${item.policy_id}`)}
                 />
               </CCardBody>
             </CCard>

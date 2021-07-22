@@ -41,6 +41,7 @@ export default class Analytics extends React.Component {
       this.transformAnalyticsData(response.data);
     } else {
       this.setState({ loading: false });
+      //Add error Popup or messaging here
     }
   };
 
