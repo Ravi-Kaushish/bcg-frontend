@@ -65,9 +65,10 @@ export default class Insurance extends React.Component {
       this.setState({ processing: true });
       let response = await API.putAsync(`${INSURANCES}/${this.state.insurance_id}`, data);
       if (HTTP_SUCCESS.includes(response.status)) {
-        this.invokePopup("success", "Success", "Policy Details Updated")
+        this.invokePopup("success", "Success", "Policy Details Updated");
+        this.getInsurance();
       } else {
-        this.invokePopup("danger", "Error", response.data)
+        this.invokePopup("danger", "Error", response.data);
       }
     } else {
       this.setState({
@@ -125,7 +126,7 @@ export default class Insurance extends React.Component {
       <div>
         {this.state.loading ? <PageLoader /> : null}
         {this.state.popup ? <Popup action={this.state.popupAction} handler={this.popupHandler} type={this.state.popupType} header={this.state.popupHeader} message={this.state.popupMessage} /> : null}
-        <CTabs activeTab="policy">
+        <CTabs activeTab="insurance">
           <CNav variant="tabs">
             <CNavItem>
               <CNavLink data-tab="insurance">
@@ -287,10 +288,10 @@ export default class Insurance extends React.Component {
             <CModalBody>
               {this.state.policyError ? <CAlert color="danger">{this.state.policyError}</CAlert> : null}
               <CFormGroup row>
-                <CCol md="3">
+                <CCol md="4">
                   <CLabel htmlFor="premium"> Premium Amount: </CLabel>
                 </CCol>
-                <CCol xs="12" md="9">
+                <CCol md="8">
                   <CInput type="text" name="premium" value={this.state.premium} onChange={this.onChange} placeholder="Premium amount in $" />
                 </CCol>
               </CFormGroup>
@@ -298,10 +299,10 @@ export default class Insurance extends React.Component {
                 POLICY_COVEREAGE.map((cover, index) => {
                   return (
                     <CFormGroup row>
-                      <CCol md="3">
+                      <CCol md="4">
                         <CLabel htmlFor="premium"> {cover.title}: </CLabel>
                       </CCol>
-                      <CCol xs="6">
+                      <CCol md="8">
                         <CSelect custom name={cover.property} id={cover.property} onChange={this.onChange}>
                           <option value={false}>Not Covered</option>
                           <option value={true}>Covered</option>
