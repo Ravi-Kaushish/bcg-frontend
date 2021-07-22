@@ -24,7 +24,7 @@ const TheContent = () => {
                   )} />
               )
             })}
-            <Redirect from="/" to="/policies" />
+            <Redirect from="/" to="/insurances" />
           </Switch>
         </React.Suspense>
       </CContainer>
