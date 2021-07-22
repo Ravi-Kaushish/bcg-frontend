@@ -15,6 +15,12 @@ const navigation = [
   },
   {
     _tag: 'CSidebarNavItem',
+    name: 'Analytics',
+    to: '/analytics',
+    icon: 'cil-chart-line',
+  },
+  {
+    _tag: 'CSidebarNavItem',
     name: 'Policies',
     to: '/policies',
     icon: 'cil-list',

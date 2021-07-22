@@ -18,7 +18,7 @@ export default class Customers extends React.Component {
   };
 
   async componentDidMount() {
-    document.title = "Insurances | BGC";
+    document.title = "Customers | BGC";
     this.getCustomers();
   };
 
@@ -57,9 +57,7 @@ export default class Customers extends React.Component {
                   scopedSlots={{
                     'marital_status':
                       (item) => (
-                        <td className="text-center">
-                          {item.marital_status ? "Married" : item.marital_status === false ? "Single" : "Not Known"}
-                        </td>
+                        <td>{item.marital_status ? "Married" : item.marital_status === false ? "Single" : "Not Known"}</td>
                       )
                   }}
                   hover
