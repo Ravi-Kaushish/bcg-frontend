@@ -1,11 +1,9 @@
-//validation to ensure correct panel data
+//validation to test Policy Data
 export const validatePolicyData = (data) => {
-    if (data.title.length > 15) {
-        return "Title cannot be longer than 15 characters.";
-    } else if (!data.title.length) {
-        return "Title can not be empty.";
-    } else if (!data.contentUrl.length) {
-        return "Content URL cannot be empty";
+    if (data.premium > 1000000) {
+        return "Premium amount cannot be more than 1 Million";
+    } else if (!data.premium || !(/^\d+$/.test(data.premium))) {
+        return "Premium amount must be in range of 1 - 1,000,000 $";
     } else {
         return false;
     }
